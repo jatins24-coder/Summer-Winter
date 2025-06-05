@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seasons Around the World</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+    }
+    .chart, .image-grid {
+      margin: 20px 0;
+    }
+    canvas {
+      width: 100% !important;
+      max-width: 800px;
+    }
+    .advantages, .disadvantages, .cards {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      flex: 1;
+      min-width: 280px;
+    }
+    .animated-img {
+      width: 150px;
+      height: auto;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Summer & Winter Seasons Around the World</h1>
+    <p>Zone-wise climate impact, demographic shifts, and temperature trends</p>
+  </header>
+
+  <section>
+    <h2>Demographics & Zones</h2>
+    <p><strong>India:</strong> Northern India faces extreme summers and cold winters. Southern India experiences a tropical climate.</p>
+    <p><strong>Europe:</strong> Cold winters in the north, milder Mediterranean weather in the south.</p>
+    <p><strong>North America:</strong> Harsh winters in Canada; subtropical summers in the southern U.S.</p>
+    <p><strong>Australia:</strong> Opposite seasons; summer in December, winter in July.</p>
+    <p><strong>Africa:</strong> The Sahara has blazing summers; central Africa stays tropical.</p>
+  </section>
+
+  <section>
+    <h2>Extreme Temperature Zones</h2>
+    <p>Coldest: Oymyakon (Russia), Antarctica. Hottest: Death Valley (USA), Lut Desert (Iran).</p>
+  </section>
+
+  <section>
+    <h2>Festivals in Summer & Winter</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Summer Festivals</h3>
+        <ul>
+          <li>India: Rath Yatra, Guru Purnima</li>
+          <li>USA: Independence Day (July 4)</li>
+          <li>Japan: Tanabata Festival</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Winter Festivals</h3>
+        <ul>
+          <li>India: Makar Sankranti, Lohri</li>
+          <li>Global: Christmas, New Year</li>
+          <li>China: Lunar New Year</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Seasonal Sports & Games</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Summer Games</h3>
+        <ul>
+          <li>Cricket</li>
+          <li>Swimming</li>
+          <li>Beach Volleyball</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Winter Games</h3>
+        <ul>
+          <li>Ice Hockey</li>
+          <li>Skiing & Snowboarding</li>
+          <li>Figure Skating</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Seasonal Animals & Birds (Animated)</h2>
+    <div class="image-grid">
+      <img class="animated-img" src="penguin-winter.jpg" alt="Penguin Winter" />
+      <img class="animated-img" src="tpeacock-summer.jpg" alt="Peacock Summer" />
+      <img class="animated-img" src="blunt-nose-leopard-lizard.jpg" alt="bluntnose Leopard lizard"/>
+      <img class="animated-img" src="snowy-owl.jpg" alt="snowy owl"/>         
+    </div>
+  </section>
+
+  <section>
+    <h2>Seasonal Fruits & Vegetables</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Summer</h3>
+        <ul>
+          <li>Mango (India)</li>
+          <li>Watermelon (USA)</li>
+          <li>Cucumber (Global)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Winter</h3>
+        <ul>
+          <li>Broccoli (USA)</li>
+          <li>Carrot (India)</li>
+          <li>Oranges (Spain)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Temperature Change Over 100 Years</h2>
+    <div class="chart">
+      <canvas id="tempChart"></canvas>
+    </div>
+  </section>
+
+  <section>
+    <h2>Advantages & Disadvantages</h2>
+    <div class="advantages">
+      <div class="card">
+        <h3>Summer Advantages</h3>
+        <ul>
+          <li>Longer daylight hours</li>
+          <li>Boost in agriculture</li>
+          <li>Tourism peak season</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Winter Advantages</h3>
+        <ul>
+          <li>Insect reduction</li>
+          <li>Water conservation</li>
+          <li>Winter sports</li>
+        </ul>
+      </div>
+    </div>
+    <div class="disadvantages">
+      <div class="card">
+        <h3>Summer Disadvantages</h3>
+        <ul>
+          <li>Heatwaves</li>
+          <li>Dehydration risks</li>
+          <li>Forest fires</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Winter Disadvantages</h3>
+        <ul>
+          <li>Freezing conditions</li>
+          <li>Power demand spikes</li>
+          <li>Transport disruptions</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Climate Awareness Initiative | Designed for Educational Use|By Gaurav & Jatin
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('tempChart').getContext('2d');
+    const tempChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ["1920", "1940", "1960", "1980", "2000", "2020"],
+        datasets: [{
+          label: 'Global Avg. Temperature (°C)',
+          data: [13.8, 14.0, 14.1, 14.4, 14.6, 15.0],
+          borderColor: '#e74c3c',
+          backgroundColor: 'rgba(231, 76, 60, 0.1)',
+          fill: true,
+          tension: 0.3
+        }, {
+          label: 'CO2 ppm Levels',
+          data: [300, 310, 320, 340, 370, 410],
+          borderColor: '#3498db',
+          backgroundColor: 'rgba(52, 152, 219, 0.1)',
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: true
+          },
+          title: {
+            display: true,
+            text: 'Global Climate Indicators (1920–2020)'
+          }
+        },
+        scales: {
+          y: {
+            title: {
+              display: true,
+              text: 'Temperature / CO2 ppm'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
